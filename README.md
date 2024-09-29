@@ -66,7 +66,7 @@ Update the configuration files with your database and email server details.
 curl -X POST http://localhost:8080/api/register -d '{
     "email": "user@example.com",
     "password": "Password123!"
-    "password_confirm": "Password123"
+    "password_confirm": "Password123!"
 }'
 ```
 
