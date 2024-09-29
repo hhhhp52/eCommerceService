@@ -54,6 +54,7 @@ Update the configuration files with your database and email server details.
 ### API Endpoints
 
 - **User Registration**: `POST /api/register`
+- **Verify Email**: `GET /api/verify-email`
 - **User Login**: `POST /api/login`
 - **Get Recommendations**: `GET /api/recommendations`
 
@@ -65,39 +66,31 @@ Update the configuration files with your database and email server details.
 curl -X POST http://localhost:8080/api/register -d '{
     "email": "user@example.com",
     "password": "Password123!"
+    "password_confirm": "Password123"
 }'
 ```
+
+#### Verify Email
+
+```sh 
+curl -X POST http://localhost:8080/api/verify-email -d '{
+    "email": "user@example.com",
+    "password": "Password123!"
+}'
+```
+
 
 #### User Login
 
 ```sh
 curl -X POST http://localhost:8080/api/login -d '{
-    "email": "user@example.com",
-    "password": "Password123!"
+    "email": "user1@example.com",
+    "password": "password1"
 }'
 ```
 
 #### Get Recommendations
 
 ```sh
-curl -X GET http://localhost:8080/api/recommendations -H "Authorization: Bearer <access_token>"
+curl -X GET http://localhost:8080/api/recommendations -H "Authorization: <access_token>"
 ```
-
-## Testing
-
-Run the tests using:
-```sh
-go test ./...
-```
-
-## Contributing
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a new Pull Request.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
